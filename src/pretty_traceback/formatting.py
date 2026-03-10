@@ -176,8 +176,8 @@ def _iter_alias_prefixes(entry_paths: typ.List[str]) -> typ.Iterable[AliasPrefix
         # Always end paths with a slash. This way relative paths don't
         # start with a / and tooling can open files (e.g. Ctrl+Click),
         # which would otherwise be parsed as absolute paths.
-        if not py_path.endswith("/"):
-            py_path = py_path + "/"
+        if not py_path.endswith(os.sep):
+            py_path = py_path + os.sep
 
         yield (alias, py_path)
 
